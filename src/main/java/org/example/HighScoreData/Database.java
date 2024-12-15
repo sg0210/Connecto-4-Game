@@ -5,12 +5,12 @@ import java.sql.*;
 public class Database {
 
     private static final String DATABASE_PATH = "high_scores.db";
-    private static final String DATABASE_URL = "jdbc:sqlite" + DATABASE_PATH;
+    private static final String DATABASE_URL = "jdbc:sqlite:" + DATABASE_PATH;
 
     public void buildDatabase()
     {
         String createTableSQL = """
-                CREATE TABLE IF NOT EXISTS high_scores(
+                CREATE TABLE IF NOT EXISTS high_scores (
                     player_name TEXT PRIMARY KEY,
                     wins INTEGER NOT NULL
                     );
@@ -45,9 +45,11 @@ public class Database {
 
     public void showHighScores()
     {
-        String selectSQL = "SELECT player_name, wins FORM high_scroes ORDER BY wins DESC";
+        String selectSQL = "SELECT player_name, wins FORM high_scores ORDER BY wins DESC";
 
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(selectSQL)){
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(selectSQL)){
             if (!resultSet.isBeforeFirst())
             {
                 System.out.println("Nincs elérhető adat!");
