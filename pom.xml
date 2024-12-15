@@ -80,7 +80,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.OroszRichardVVC0L0.Main</mainClass>
+                            <mainClass>org.example.SullerGyorgyI8X1LH.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -97,14 +97,6 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
-            </plugin>
-
 
             <plugin>
                 <groupId>org.jacoco</groupId>
