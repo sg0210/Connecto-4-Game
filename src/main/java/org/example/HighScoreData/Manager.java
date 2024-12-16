@@ -12,6 +12,7 @@ public class Manager extends Database{
 
     @Override
     public void applyWin(String playerName) {
+        databases.applyWin(playerName);
         System.out.println("Győzelmek mentése: " +playerName);
     }
 

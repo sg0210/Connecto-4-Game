@@ -26,18 +26,18 @@ public class Database {
 
     public void applyWin(String playerName)
     {
-        String insertOrUpdateSWL = """
-                INSERT TO high_scores (player_name, wins)
+        String insertOrUpdateSQL = """
+                INSERT INTO high_scores (player_name, wins)
                 VALUES (?, 1)
                 ON CONFLICT(player_name) DO UPDATE SET
                 wins = wins + 1
                 """;
 
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL); PreparedStatement preparedStatement = connection.prepareStatement(insertOrUpdateSWL))
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL); PreparedStatement preparedStatement = connection.prepareStatement(insertOrUpdateSQL))
         {
             preparedStatement.setString(1, playerName);
             preparedStatement.executeUpdate();
-
+            System.out.println(playerName + " győzelem mentésre került");
         } catch (SQLException e) {
             System.out.println("Nem sikerült elmenteni a győzelmet: " + e.getMessage());
         }
@@ -45,7 +45,7 @@ public class Database {
 
     public void showHighScores()
     {
-        String selectSQL = "SELECT player_name, wins FORM high_scores ORDER BY wins DESC";
+        String selectSQL = "SELECT player_name, wins FROM high_scores ORDER BY wins DESC";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
              Statement statement = connection.createStatement();
@@ -64,6 +64,7 @@ public class Database {
                 System.out.println(playerName + ": " + wins + " győzelem");
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("Nem sikerült beolvasni a High Score beolvasásakor: " + e.getMessage());
         }
     }

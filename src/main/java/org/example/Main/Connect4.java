@@ -35,7 +35,7 @@ public class Connect4 {
 
                 while(gameRun)
                 {
-                    int column = Moves.getColumnInput();
+                    int column = Moves.getColumnInput(columns);
 
                     if (Mechanic.isValidMove(board, column))
                     {

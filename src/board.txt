@@ -1,6 +1,6 @@
--------
----RY--
--YRRY--
--YYYY--
-RYRYR--
-YYRYRY-
+--Y---Y
+--Y---Y
+--Y-R-Y
+--Y-R-Y
+R-Y-Y-Y
+YYR-R-R
