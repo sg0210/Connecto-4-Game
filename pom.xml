@@ -80,7 +80,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.SullerGyorgyI8X1LH.Main</mainClass>
+                            <mainClass>org/example/Main/Main.java</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -126,7 +126,7 @@
                     <execution>
                         <goals> </goals>
                         <configuration>
-                            <excludes>**/HighScoreManager.java</excludes>
+                            <excludes>**/Manager.java</excludes>
                         </configuration>
                     </execution>
                 </executions>
